@@ -1,0 +1,1205 @@
+interface GigabitEthernet1/0/1
+ description Voice/data
+ switchport aaccess vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ trust device cisco-phone
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ service-policy input AutoQos-4.0-CiscoPhone-Input-Policy
+ service-policy output AutoQos-4.0-Output-Policy
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/2
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/3
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/4
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/5
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/6
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/7
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/8
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/9
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ trust device cisco-phone
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ service-policy input AutoQos-4.0-CiscoPhone-Input-Policy
+ service-policy output AutoQos-4.0-Output-Policy
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/10
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/11
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/12
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/13
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/14
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/15
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/16
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/17
+ description wireless APS
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/18
+ description wireless APS
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/19
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ speed 100
+ duplex full
+ trust device cisco-phone
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ service-policy input AutoQos-4.0-CiscoPhone-Input-Policy
+ service-policy output AutoQos-4.0-Output-Policy
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/20
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/21
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/22
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/23
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/24
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/25
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/26
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/27
+ description wireless APS
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/28
+ description wireless APS
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/29
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ speed 100
+ duplex full
+ trust device cisco-phone
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ service-policy input AutoQos-4.0-CiscoPhone-Input-Policy
+ service-policy output AutoQos-4.0-Output-Policy
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/30
+ description SECURITY CAMERAS
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/31
+ description RADIANT SWITCH UPLINK
+ switchport access vlan 204
+ switchport mode access
+ switchport voice vlan 201
+ switchport port-security maximum 10
+ switchport port-security aging time 2
+ switchport port-security aging type inactivity
+ switchport port-security
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/32
+ description AMX
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/33
+ description AMX
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/34
+ description wireless APS
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/35
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/36
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 10
+ dot1x timeout supp-timeout 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/37
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ speed 100
+ duplex full
+ trust device cisco-phone
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ service-policy input AutoQos-4.0-CiscoPhone-Input-Policy
+ service-policy output AutoQos-4.0-Output-Policy
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/38
+ description AMX
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/39
+ description RADIANT TERMINALS
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/40
+ description AMX
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/41
+ description AMX
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/42
+ description wireless APS
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/43
+ description DMP/HD VIDEO
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/44
+ description SECURITY CAMERAS
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/45
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ speed 100
+ duplex full
+ trust device cisco-phone
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ service-policy input AutoQos-4.0-CiscoPhone-Input-Policy
+ service-policy output AutoQos-4.0-Output-Policy
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/46
+ description Voice/data
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/47
+ description UPS
+ switchport access vlan 200
+ switchport mode access
+ switchport voice vlan 201
+ ip access-group PRE_AUTH in
+ authentication event server dead action authorize 
+ authentication host-mode multi-auth
+ authentication open
+ authentication order mab dot1x
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication timer restart 6
+ authentication timer inactivity 3700
+ authentication violation restrict
+ mab
+ snmp trap mac-notification change added
+ dot1x pae authenticator
+ dot1x timeout quiet-period 6
+ dot1x timeout tx-period 3
+ dot1x timeout supp-timeout 3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!
+interface GigabitEthernet1/0/48
+ description ipatch
+ switchport access vlan 200
+ switchport mode access
+ switchport port-security maximum 3
+ switchport port-security aging time 2
+ switchport port-security aging type inactivity
+ switchport port-security
+ speed 100
+ duplex half
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ip dhcp snooping limit rate 900
+!

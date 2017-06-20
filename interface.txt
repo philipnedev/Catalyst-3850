@@ -1,0 +1,15 @@
+interface GigabitEthernet1/0/3
+ 	 description ###Access Port - XXX###
+	 switchport access vlan 17
+	 switchport mode access
+	 switchport nonegotiate
+	 switchport port-security maximum 2
+	 switchport port-security violation  restrict
+	 switchport port-security aging time 2
+	 switchport port-security aging type inactivity
+	 switchport port-security
+	 storm-control broadcast level 1.00
+	 storm-control multicast level 1.00
+	 no cdp enable
+	 spanning-tree portfast
+	 spanning-tree bpduguard enable
