@@ -2,7 +2,6 @@
 from netmiko import ConnectHandler
 
 def get_device_config(device):
-    print "Collecting ", device["ip"], "..."
     net_connect = ConnectHandler(**device)
     output = net_connect.send_command("show running-config")
     net_connect.disconnect()
@@ -20,7 +19,11 @@ def get_all_configs(devices):
     print "Start configurations collection:"
     configurations = {}
     for device in devices:
-        configurations[device["ip"]] = get_device_config(device)
+        devices[device]["config"] = get_device_config(devices[device]["connection"])
+        if devices[device]["config"][0] == "Building configuration...":
+            print "Collecting ", devices[device]["connection"]["ip"], "...","OK"
+        else:
+            print "Collecting ", devices[device]["connection"]["ip"], "...","FAIL"
 
-    return configurations
+    return devices
 

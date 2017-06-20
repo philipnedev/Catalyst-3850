@@ -3,7 +3,7 @@
 from netmiko import ConnectHandler
 import os
 from prettytable import PrettyTable
-
+from devices_configuration import get_device_config
 
 # ----------------------------------------------
 
@@ -24,21 +24,24 @@ def get_hostname(configuration):
 
     return hostname
 
-def print_hostnames(configs,devices):
+def print_hostnames(devices, skip=False):
     os.system('clear')
-    pt = PrettyTable(["Hostname", "IP Address","Building", "Floor"])
+    pt = PrettyTable(["N", "Hostname", "IP Address","Building", "Floor"])
     pt.align["Hostname"] = "c"
     pt.padding_width = 1
-
-    for ip_address in configs:
-        pt.add_row([ip_address, get_hostname(configs[ip_address])])
+    i = 1
+    list = {}
+    for device in devices:
+        pt.add_row([i, device, get_hostname(devices[device]['config']),devices[device]['building'],devices[device]['floor']])
+        list[str(i)] = device
+        i+=1
 
     print pt
+    if skip == False:
+        raw_input("Press any key to continue")
+    return list
 
-    a = raw_input("Press any key to continue")
-
-
-def set_hostname(device, new_hostname):
+def set_hostname(devices):
     '''Configures new hostname to device
     Args:
         device:Dictionary in to form:
@@ -52,28 +55,38 @@ def set_hostname(device, new_hostname):
        Returns:
            True of False
     '''
-    net_connect = ConnectHandler(**device)
+    list = print_hostnames(devices, True)
+    switch_number = raw_input("Please enter switch number: ")
+    new_hostname = raw_input("Please enter new name: ")
+
+    net_connect = ConnectHandler(**devices[list[switch_number]]["connection"])
     command = 'hostname ' + new_hostname
     config_commands = [command]
-    output = net_connect.send_config_set(config_commands)
-    net_connect.disconnect()
+    try:
+        print "Changing hostname ...(it takes some time)"
+        net_connect.send_config_set(config_commands)
+        net_connect.disconnect()
+    except:
+        net_connect.disconnect()
+    devices[list[switch_number]]["config"] = get_device_config(devices[list[switch_number]]["connection"])
 
-def menu_hostname(devices, configs):
+def menu_hostname(devices):
     while True:
         os.system('clear')
         print 9 * "-"
         print "Hostname"
         print 9 * "-"
         print "1.List device hostnames"
-        print "2.Change device hostnames"
+        print "2.Change device hostname"
         print "q.Quit"
 
         choice = raw_input("Select Hostname Option:")
 
         if choice == "1":
-            print_hostnames(configs,devices)
+            print_hostnames(devices)
+
         elif choice == "2":
-            print "choice 2"
-            a = raw_input()
-        if choice == "q":
+            set_hostname(devices)
+
+        elif choice == "q":
             break

@@ -3,37 +3,60 @@ import os
 
 import devices_configuration
 import hostname
+'''
+devices = {
+    '10.24.1.129': {
+        'connection':{
+            'username': 'pnedev',
+            'ip': '10.24.1.129',
+            'device_type': 'cisco_xe',
+            'password': '165779'
 
-sw_3850_1 = {
-        'device_type': 'cisco_ios',
-        'ip': '10.24.1.131',
-        'username': 'pnedev',
-        'password': '165779',
+            },
         'building': 'Sofia',
         'floor': '2'
+
+    },
 }
 
-sw_3850_2 = {
-        'device_type': 'cisco_ios',
-        'ip': '10.24.1.128',
-        'username': 'pnedev',
-        'password': '165779',
+'''
+devices = {
+    '10.24.1.128': {
+        'connection':{
+            'username': 'pnedev',
+            'ip': '10.24.1.128',
+            'device_type': 'cisco_xe',
+            'password': '165779'
+            },
         'building': 'Sofia',
         'floor': '2'
-}
 
-sw_3850_3 = {
-        'device_type': 'cisco_ios',
-        'ip': '10.24.1.129',
-        'username': 'pnedev',
-        'password': '165779',
+    },
+    '10.24.1.129': {
+        'connection':{
+            'username': 'pnedev',
+            'ip': '10.24.1.129',
+            'device_type': 'cisco_xe',
+            'password': '165779'
+        },
         'building': 'Sofia',
-        'floor': '3'
+        'floor': '2'
+    },
+    '10.24.1.131': {
+        'connection':{
+            'username': 'pnedev',
+            'ip': '10.24.1.131',
+            'device_type': 'cisco_xe',
+            'password': '165779'
+        },
+        'building': 'Sofia',
+        'floor': '1'
+    }
 }
-devices = [sw_3850_1, sw_3850_2, sw_3850_3]
 
-configurations = devices_configuration.get_all_configs(devices)
 
+devices = devices_configuration.get_all_configs(devices)
+print devices
 
 while True:
     os.system('clear')
@@ -44,6 +67,6 @@ while True:
     print "q.Quit"
     choice = raw_input("Select Option:")
     if choice == "1":
-        hostname.menu_hostname(devices, configurations)
+        hostname.menu_hostname(devices)
     elif choice == "q":
         break
