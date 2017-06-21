@@ -151,6 +151,19 @@ def vlan_to_switch_mapping(devices):
     print pt
     raw_input("Press any kay to continue...")
 
+def add_vlan(devices):
+    vlan_number = raw_input("Please enter VLAN number: ")
+    vlan_name = raw_input("Please enter VLAN name: ")
+    for device in devices:
+        net_connect = ConnectHandler(**devices[device]["connection"])
+        command1 = 'vlan ' + vlan_number
+        command2 = 'name ' + vlan_name
+        command3 = 'exit '
+        config_commands = [command1,command2, command3]
+
+        print "Add/change VLAN ", vlan_number , " on ", device
+        net_connect.send_config_set(config_commands)
+        net_connect.disconnect()
 
 def menu(devices):
     print "Collecting VLAN information ..."
@@ -173,7 +186,7 @@ def menu(devices):
             vlan_to_switch_mapping(devices)
 
         elif choice == "2":
-            raw_input()
+            add_vlan(devices)
 
         elif choice == "q":
             break

@@ -56,6 +56,7 @@ devices = {
 }
 
 
+
 devices = devices_configuration.get_all_configs(devices)
 
 while True:
