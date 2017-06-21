@@ -114,7 +114,8 @@ def get_vlans_for_switch(device):
     output = net_connect.send_command("show vlan brief")
     net_connect.disconnect()
     output = output.splitlines()
-    lines = []
+    vlans = []
+    names = []
     output = [x for x in output if x]
 
     for line in output:  # low memory consumption iterator. even TB files can be read on a standard laptop.
@@ -122,11 +123,22 @@ def get_vlans_for_switch(device):
         try:
             int(line.split()[0])
             if int(line.split()[0]) not in [1002,1003,1004,1005]:
-                lines.append(line.split()[0])
+                vlans.append(line.split()[0])
         except:
             pass
 
-    return lines
+    vlans.sort()
+
+    for vlan in vlans:
+        for line in output:
+            line = line.strip().encode('ascii', 'ignore')  # or some other preprocessing
+            try:
+                if line.split()[0] == vlan:
+                    names.append(line.split()[1])
+            except:
+                pass
+    return vlans, names
+
 
 def vlan_to_switch_mapping(devices):
     allvlans = []
@@ -134,11 +146,11 @@ def vlan_to_switch_mapping(devices):
         allvlans = list(set(devices[device]["vlans"]+allvlans))
     allvlans.sort()
     allvlans.insert(0," ")
+
     pt = PrettyTable(allvlans)
     pt.padding_width = 1
 
     for device in devices:
-        #pt.align["Hostname"] = "c"
         match = []
         match.append(device)
         for vlan in allvlans[1:]:
@@ -147,6 +159,7 @@ def vlan_to_switch_mapping(devices):
             else:
                 match.append('NO')
         pt.add_row(match)
+
 
     print pt
     raw_input("Press any kay to continue...")
@@ -165,19 +178,62 @@ def add_vlan(devices):
         net_connect.send_config_set(config_commands)
         net_connect.disconnect()
 
+def delete_vlan(devices):
+    vlan_number = raw_input("Please enter VLAN number: ")
+    for device in devices:
+        net_connect = ConnectHandler(**devices[device]["connection"])
+        command1 = 'no vlan ' + vlan_number
+        command2 = 'exit '
+        config_commands = [command1,command2]
+
+        print "Deleting VLAN ", vlan_number , " on ", device
+        net_connect.send_config_set(config_commands)
+        net_connect.disconnect()
+
 def menu(devices):
     print "Collecting VLAN information ..."
     for device in devices:
         print "Collecting from ", device
-        devices[device]['vlans'] = get_vlans_for_switch(devices[device]["connection"])
+        devices[device]['vlans'], devices[device]['vlan_names'] = get_vlans_for_switch(devices[device]["connection"])
+    os.system('clear')
+    vlan_list = {}
+
+    for device in devices:
+        for i, vlan in enumerate(devices[device]['vlans']):
+            vlan_list[vlan] = devices[device]['vlan_names'][i]
+
+    allvlans = []
+    for device in devices:
+        allvlans = list(set(devices[device]["vlans"]+allvlans))
+    allvlans.sort()
+    allnames = []
+    for vlan in allvlans:
+        for v in vlan_list:
+            if v == vlan:
+                allnames.append(vlan_list[v])
+
+    for i in range(len(allvlans)/10):
+        pt = PrettyTable(allvlans[i*10:i*10+10])
+        pt.add_row(allnames[i*10:i*10+10])
+        pt.padding_width = 1
+        print pt
+
+    if len(allvlans)%10 >  0:
+        i = len(allvlans)/10
+        pt = PrettyTable(allvlans[i * 10:])
+        pt.add_row(allnames[i * 10:])
+        pt.padding_width = 1
+        print pt
+
+
 
     while True:
-        os.system('clear')
         print 9 * "-"
         print "VLANs"
         print 9 * "-"
         print "1.VLAN to switches mapping"
         print "2.Add VLAN"
+        print "3.Delete VLAN"
         print "q.Quit"
 
         choice = raw_input("Select VLAN Option:")
@@ -187,6 +243,9 @@ def menu(devices):
 
         elif choice == "2":
             add_vlan(devices)
+
+        elif choice == "3":
+            delete_vlan(devices)
 
         elif choice == "q":
             break
