@@ -10,7 +10,7 @@ def get_device_config(device):
     lines = []
 
     for line in output:  # low memory consumption iterator. even TB files can be read on a standard laptop.
-        line = line.strip().encode('ascii','ignore')  # or some other preprocessing
+        line = line.rstrip().encode('ascii','ignore')  # or some other preprocessing
         lines.append(line)
 
     return lines

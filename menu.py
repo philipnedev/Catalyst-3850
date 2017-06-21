@@ -4,7 +4,10 @@ import os
 import devices_configuration
 import hostname
 import vlans
+import interfaces
+
 '''
+
 devices = {
     '10.24.1.131': {
         'connection':{
@@ -66,11 +69,14 @@ while True:
     print 6*"-"
     print "1.Hostname"
     print "2.VLAN"
+    print "3.Interfaces"
     print "q.Quit"
     choice = raw_input("Select Option:")
     if choice == "1":
         hostname.menu_hostname(devices)
     if choice == "2":
         vlans.menu(devices)
+    if choice == "3":
+        interfaces.menu(devices)
     elif choice == "q":
         break
