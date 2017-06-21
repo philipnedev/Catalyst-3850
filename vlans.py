@@ -1,4 +1,9 @@
 #!/usr/bin/python
+from netmiko import ConnectHandler
+import os
+from prettytable import PrettyTable
+
+
 """Finding the VLAN information in running-config and convert it to structured format"""
 
 
@@ -27,17 +32,24 @@ def get_vlans_from_config(list):
     start = 0
     stop = 0
     check = 0
+
     for i,line in enumerate(list):
         if line.startswith("vlan") and start == 0 and len(line) < 10:
             start = i
+
         elif line.startswith("vlan") and start != 0:
             check = 0
+
         elif line == "!" and start != 0:
             check = 1
             stop = i - 1
+            print line
+            raw_input()
         elif start != 0 and check == 1:
+            print line
+            raw_input()
             break
-    return lines[start:stop]
+    return list[start:stop]
 
 def convert_raw_vlans_to_list(list):
     '''Converts VLAN part of the running-config in structured data
@@ -76,6 +88,9 @@ def convert_raw_vlans_to_list(list):
 
     return vlans
 
+
+
+
 def get_vlan_interface(vlan_list, config):
     for i, vlan in enumerate(vlan_list):
         vlan_list[i]["ip address"] = None
@@ -93,16 +108,76 @@ def get_vlan_interface(vlan_list, config):
         except:
             pass
 
+def get_vlans_for_switch(device):
+
+    net_connect = ConnectHandler(**device)
+    output = net_connect.send_command("show vlan brief")
+    net_connect.disconnect()
+    output = output.splitlines()
+    lines = []
+    output = [x for x in output if x]
+
+    for line in output:  # low memory consumption iterator. even TB files can be read on a standard laptop.
+        line = line.strip().encode('ascii', 'ignore')  # or some other preprocessing
+        try:
+            int(line.split()[0])
+            if int(line.split()[0]) not in [1002,1003,1004,1005]:
+                lines.append(line.split()[0])
+        except:
+            pass
+
+    return lines
+
+def vlan_to_switch_mapping(devices):
+    allvlans = []
+    for device in devices:
+        allvlans = list(set(devices[device]["vlans"]+allvlans))
+    allvlans.sort()
+    allvlans.insert(0," ")
+    pt = PrettyTable(allvlans)
+    pt.padding_width = 1
+
+    for device in devices:
+        #pt.align["Hostname"] = "c"
+        match = []
+        match.append(device)
+        for vlan in allvlans[1:]:
+            if vlan in devices[device]['vlans']:
+                match.append('YES')
+            else:
+                match.append('NO')
+        pt.add_row(match)
+
+    print pt
+    raw_input("Press any kay to continue...")
 
 
-    for vlan in vlans:
-        print vlan
+def menu(devices):
+    print "Collecting VLAN information ..."
+    for device in devices:
+        print "Collecting from ", device
+        devices[device]['vlans'] = get_vlans_for_switch(devices[device]["connection"])
 
-#lines = file_to_list("shtech.txt")
-lines = file_to_list("shtech.txt")
-vlans = get_vlans_from_config(lines)
-vlans = convert_raw_vlans_to_list(vlans)
-get_vlan_interface(vlans,lines)
+    while True:
+        os.system('clear')
+        print 9 * "-"
+        print "VLANs"
+        print 9 * "-"
+        print "1.VLAN to switches mapping"
+        print "2.Add VLAN"
+        print "q.Quit"
+
+        choice = raw_input("Select VLAN Option:")
+
+        if choice == "1":
+            vlan_to_switch_mapping(devices)
+
+        elif choice == "2":
+            raw_input()
+
+        elif choice == "q":
+            break
+
 
 
 

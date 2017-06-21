@@ -3,12 +3,13 @@ import os
 
 import devices_configuration
 import hostname
+import vlans
 '''
 devices = {
-    '10.24.1.129': {
+    '10.24.1.131': {
         'connection':{
             'username': 'pnedev',
-            'ip': '10.24.1.129',
+            'ip': '10.24.1.131',
             'device_type': 'cisco_xe',
             'password': '165779'
 
@@ -56,7 +57,6 @@ devices = {
 
 
 devices = devices_configuration.get_all_configs(devices)
-print devices
 
 while True:
     os.system('clear')
@@ -64,9 +64,12 @@ while True:
     print "Menu"
     print 6*"-"
     print "1.Hostname"
+    print "2.VLAN"
     print "q.Quit"
     choice = raw_input("Select Option:")
     if choice == "1":
         hostname.menu_hostname(devices)
+    if choice == "2":
+        vlans.menu(devices)
     elif choice == "q":
         break
