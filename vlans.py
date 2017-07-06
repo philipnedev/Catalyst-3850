@@ -190,6 +190,21 @@ def delete_vlan(devices):
         net_connect.send_config_set(config_commands)
         net_connect.disconnect()
 
+def rename_vlan(devices):
+    vlan_number = raw_input("Please enter VLAN number: ")
+    vlan_name = raw_input("Please enter new VLAN name: ")
+    for device in devices:
+        net_connect = ConnectHandler(**devices[device]["connection"])
+        command1 = 'vlan ' + vlan_number
+        command2 = 'name ' + vlan_name
+        command3 = 'exit '
+
+        config_commands = [command1,command2,command3]
+
+        print "Renaming VLAN ", vlan_number , " to ", vlan_name, " on ", device
+        net_connect.send_config_set(config_commands)
+        net_connect.disconnect()
+
 def menu(devices):
     print "Collecting VLAN information ..."
     for device in devices:
@@ -234,6 +249,7 @@ def menu(devices):
         print "1.VLAN to switches mapping"
         print "2.Add VLAN"
         print "3.Delete VLAN"
+        print "4.Rename VLAN"
         print "q.Quit"
 
         choice = raw_input("Select VLAN Option:")
@@ -246,6 +262,9 @@ def menu(devices):
 
         elif choice == "3":
             delete_vlan(devices)
+
+        elif choice == "4":
+            rename_vlan(devices)
 
         elif choice == "q":
             break
