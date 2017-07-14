@@ -90,7 +90,7 @@ def menu_hostname(devices):
             choice = int(choice) - 1
             if menu[choice] == "List devices hostnames":
                 print_hostnames(devices)
-            if menu[choice] == "Change device hostname":
+            elif menu[choice] == "Change device hostname":
                 set_hostname(devices)
 
         except:

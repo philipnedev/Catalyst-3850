@@ -1,6 +1,7 @@
 #!/usr/bin/python
 from netmiko import ConnectHandler
 import os
+import formating
 from prettytable import PrettyTable
 
 
@@ -208,7 +209,7 @@ def rename_vlan(devices):
 def menu(devices):
     print "Collecting VLAN information ..."
     for device in devices:
-        print "Collecting from ", device
+        print "Collecting VLAN information from ", device
         devices[device]['vlans'], devices[device]['vlan_names'] = get_vlans_for_switch(devices[device]["connection"])
     os.system('clear')
     vlan_list = {}
@@ -227,6 +228,8 @@ def menu(devices):
             if v == vlan:
                 allnames.append(vlan_list[v])
 
+    os.system('clear')
+
     for i in range(len(allvlans)/10):
         pt = PrettyTable(allvlans[i*10:i*10+10])
         pt.add_row(allnames[i*10:i*10+10])
@@ -243,31 +246,33 @@ def menu(devices):
 
 
     while True:
-        print 9 * "-"
-        print "VLANs"
-        print 9 * "-"
-        print "1.VLAN to switches mapping"
-        print "2.Add VLAN"
-        print "3.Delete VLAN"
-        print "4.Rename VLAN"
-        print "q.Quit"
+        menu = [
+            "VLAN to switches mapping",
+            "Add VLAN",
+            "Delete VLAN",
+            "Rename VLAN",
+        ]
+
+        formating.print_menu_title("Menu - VLANs")
+        formating.print_menu_items(menu)
 
         choice = raw_input("Select VLAN Option:")
 
-        if choice == "1":
-            vlan_to_switch_mapping(devices)
-
-        elif choice == "2":
-            add_vlan(devices)
-
-        elif choice == "3":
-            delete_vlan(devices)
-
-        elif choice == "4":
-            rename_vlan(devices)
-
-        elif choice == "q":
+        if choice == "q":
             break
+        try:
+            choice = int(choice) - 1
+            if menu[choice] == "VLAN to switches mapping":
+                vlan_to_switch_mapping(devices)
+            elif menu[choice] == "Add VLAN":
+                add_vlan(devices)
+            elif menu[choice] == "Delete VLAN":
+                delete_vlan(devices)
+            elif menu[choice] == "Rename VLAN":
+                rename_vlan(devices)
+        except:
+            pass
+
 
 
 

@@ -9,7 +9,7 @@ import vlans
 import interfaces
 import formating
 
-
+'''
 devices = {
     '10.24.1.131': {
         'connection':{
@@ -59,7 +59,7 @@ devices = {
         'floor': '1'
     }
 }
-'''
+
 
 devices = devices_configuration.get_all_configs(devices)
 
@@ -81,9 +81,9 @@ while True:
         choice = int(choice) - 1
         if menu[choice] == "Hostnames":
             hostname.menu_hostname(devices)
-        if menu[choice] == "VLAN":
+        elif menu[choice] == "VLAN":
             vlans.menu(devices)
-        if menu[choice] == "Interfaces":
+        elif menu[choice] == "Interfaces":
             interfaces.menu(devices)
     except:
         pass
