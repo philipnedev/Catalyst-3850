@@ -65,7 +65,7 @@ devices = devices_configuration.get_all_configs(devices)
 
 while True:
     menu = [
-        "Hostname",
+        "Hostnames",
         "VLAN",
         "Interfaces",
     ]
@@ -79,7 +79,7 @@ while True:
         break
     try:
         choice = int(choice) - 1
-        if menu[choice] == "Hostname":
+        if menu[choice] == "Hostnames":
             hostname.menu_hostname(devices)
         if menu[choice] == "VLAN":
             vlans.menu(devices)

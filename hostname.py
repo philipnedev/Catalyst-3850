@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # ----------------------------------------------
 from netmiko import ConnectHandler
+import formating
 import os
 from prettytable import PrettyTable
 from devices_configuration import get_device_config
@@ -38,13 +39,13 @@ def print_hostnames(devices, skip=False):
 
     print pt
     if skip == False:
-        raw_input("Press any key to continue")
+        raw_input("Press (Enter) to continue ...")
     return list
 
 def set_hostname(devices):
     '''Configures new hostname to device
     Args:
-        device:Dictionary in to form:
+        device:Dictionary in the form:
             sw_3850 = {
             'device_type': 'cisco_ios',
             'ip': '10.24.1.131',
@@ -72,21 +73,26 @@ def set_hostname(devices):
 
 def menu_hostname(devices):
     while True:
+        menu = [
+            "List devices hostnames",
+            "Change device hostname"
+        ]
+
         os.system('clear')
-        print 9 * "-"
-        print "Hostname"
-        print 9 * "-"
-        print "1.List device hostnames"
-        print "2.Change device hostname"
-        print "q.Quit"
+        formating.print_menu_title("Menu - Hostnames")
+        formating.print_menu_items(menu)
 
         choice = raw_input("Select Hostname Option:")
 
-        if choice == "1":
-            print_hostnames(devices)
-
-        elif choice == "2":
-            set_hostname(devices)
-
-        elif choice == "q":
+        if choice == "q":
             break
+        try:
+            choice = int(choice) - 1
+            if menu[choice] == "List devices hostnames":
+                print_hostnames(devices)
+            if menu[choice] == "Change device hostname":
+                set_hostname(devices)
+
+        except:
+            pass
+
