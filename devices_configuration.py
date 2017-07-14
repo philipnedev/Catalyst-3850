@@ -1,4 +1,5 @@
 #!/usr/bin/python
+
 from netmiko import ConnectHandler
 
 def get_device_config(device):
