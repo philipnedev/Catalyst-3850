@@ -3,7 +3,6 @@
 Prints the initial menu and takes the choice of action.
 '''
 import os
-
 import devices_configuration
 import hostname
 import vlans
@@ -23,7 +22,7 @@ devices = {
         'building': 'Sofia',
         'floor': '2'
 
-    },
+    }
 }
 
 '''
