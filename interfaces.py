@@ -4,6 +4,8 @@ import hostname
 import os
 from netmiko import ConnectHandler
 import devices_configuration
+import formating
+
 
 
 
@@ -169,6 +171,38 @@ def interface_configuration(device,interface):
         print "There is no such Swich/Interface combination"
     print "Finished configuration. Collecting result ..."
 
+def trunk_configuration(device,interface):
+
+    existance = False
+    for i in device["interfaces"]:
+        if i["number"] == interface:
+            existance = True
+
+    if existance == True:
+        description = raw_input("Interface description:")
+
+        net_connect = ConnectHandler(**device["connection"])
+
+        for i in device["interfaces"]:
+            if i["number"] == interface:
+                command1 = 'interface ' + i["type"] + i["number"]
+                command2 = 'description ' + description
+                command3 = 'switchport mode trunk'
+                command4 = 'no switchport access vlan '
+                command5 = 'no switchport voice vlan '
+                command6 = 'no spanning-tree portfast'
+                command7 = 'no spanning-tree bpduguard'
+
+        config_commands = [command1, command2, command3, command4, command5, command6, command7]
+
+        net_connect.send_config_set(config_commands)
+        net_connect.disconnect()
+
+    else:
+        print "There is no such Swich/Interface combination"
+    print "Finished configuration. Collecting result ..."
+
+
 def interface_shutdown(device, interface, action):
     pt = PrettyTable(["Type", "Number", "Description", "Mode", "VLAN", "Voice", "STP_PF", "BPDU Guard", "Shutdown"])
     pt.align["Type"] = "c"
@@ -211,40 +245,53 @@ def menu(devices):
         devices[device]["interfaces"] = get_interfaces_from_config(devices[device]['config'])
 
     while True:
-        print 11 * "-"
-        print "Interfaces"
-        print 11 * "-"
-        print "1.Get switch interface information in"
-        print "2.Configure Access Interface"
-        print "3.Configure Trunk Interface"
-        print "4.Shutdown Interface"
-        print "q.Quit"
+        menu = [
+            "Get switch interface information",
+            "Configure Access Interface",
+            "Configure Trunk Interface",
+            "Shutdown Interface"
+        ]
+
+        formating.print_menu_title("Menu - Interfaces")
+        formating.print_menu_items(menu)
+
 
         choice = raw_input("Select an Option:")
         print "-"*10
 
-        if choice == "1":
-            switch = raw_input("Which switch:")
-            print_switch_interfaces(devices[list[switch]])
-        elif choice == "2":
-            switch = raw_input("Which switch:")
-            interface = raw_input("Which interface [x/x/x]:")
-            interface_configuration(devices[list[switch]],interface)
-            devices[list[switch]]["config"] = devices_configuration.get_device_config(devices[list[switch]]["connection"])
-            devices[list[switch]]["interfaces"] = get_interfaces_from_config(devices[list[switch]]['config'])
-        elif choice == "4":
-            switch = raw_input("Which switch:")
-            interface = raw_input("Which interface [x/x/x]:")
-            action = raw_input("s:shutdown | sn:shut/no shut:")
-
-            interface_shutdown(devices[list[switch]], interface, action)
-            devices[list[switch]]["config"] = devices_configuration.get_device_config(devices[list[switch]]["connection"])
-            devices[list[switch]]["interfaces"] = get_interfaces_from_config(devices[list[switch]]['config'])
-
-
-        elif choice == "q":
+        if choice == "q":
             break
+        try:
+            choice = int(choice) - 1
+            if menu[choice] == "Get switch interface information":
+                switch = raw_input("Which switch:")
+                print_switch_interfaces(devices[list[switch]])
+            elif menu[choice] == "Configure Access Interface":
+                switch = raw_input("Which switch:")
+                interface = raw_input("Which interface [x/x/x]:")
+                interface_configuration(devices[list[switch]], interface)
+                success, devices[list[switch]]["config"] = devices_configuration.get_device_config(devices[list[switch]]["connection"])
+                devices[list[switch]]["interfaces"] = get_interfaces_from_config(devices[list[switch]]['config'])
 
+            elif menu[choice] == "Configure Trunk Interface":
+                switch = raw_input("Which switch:")
+                interface = raw_input("Which interface [x/x/x]:")
+                trunk_configuration(devices[list[switch]], interface)
+                success, devices[list[switch]]["config"] = devices_configuration.get_device_config(devices[list[switch]]["connection"])
+                devices[list[switch]]["interfaces"] = get_interfaces_from_config(devices[list[switch]]['config'])
+
+            elif menu[choice] == "Configure Trunk Interface":
+                raw_input("Configure Trunk...")
+            elif menu[choice] == "Shutdown Interface":
+                switch = raw_input("Which switch:")
+                interface = raw_input("Which interface [x/x/x]:")
+                action = raw_input("s:shutdown | sn:shut/no shut:")
+
+                interface_shutdown(devices[list[switch]], interface, action)
+                success, devices[list[switch]]["config"] = devices_configuration.get_device_config(devices[list[switch]]["connection"])
+                devices[list[switch]]["interfaces"] = get_interfaces_from_config(devices[list[switch]]['config'])
+        except:
+            pass
 
 
 
