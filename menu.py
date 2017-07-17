@@ -8,6 +8,7 @@ import hostname
 import vlans
 import interfaces
 import formating
+import show
 
 '''
 devices = {
@@ -68,6 +69,7 @@ while True:
         "Hostnames",
         "VLAN",
         "Interfaces",
+        "Show Commands"
     ]
 
     os.system('clear')
@@ -80,10 +82,13 @@ while True:
     try:
         choice = int(choice) - 1
         if menu[choice] == "Hostnames":
-            hostname.menu_hostname(devices)
+            hostname.menu(devices)
         elif menu[choice] == "VLAN":
             vlans.menu(devices)
         elif menu[choice] == "Interfaces":
             interfaces.menu(devices)
+        elif menu[choice] == "Show Commands":
+            show.menu(devices)
+
     except:
         pass

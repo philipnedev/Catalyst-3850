@@ -71,7 +71,7 @@ def set_hostname(devices):
         net_connect.disconnect()
     devices[list[switch_number]]["config"] = get_device_config(devices[list[switch_number]]["connection"])
 
-def menu_hostname(devices):
+def menu(devices):
     while True:
         menu = [
             "List devices hostnames",

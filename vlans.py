@@ -105,11 +105,18 @@ def get_vlan_interface(vlan_list, config):
                 elif line.startswith("description"):
                     vlan_list[i]["description"] = line[len("description") + 1:]
 
-
         except:
             pass
 
 def get_vlans_for_switch(device):
+    '''Collects the VLANs information from one device
+            Args:
+                device: connection information in netmitko format
+            Returns:
+                vlans - list - List of the VLANs numbers
+                names - list - List of the VLANs names
+
+    '''
 
     net_connect = ConnectHandler(**device)
     output = net_connect.send_command("show vlan brief")
@@ -142,6 +149,13 @@ def get_vlans_for_switch(device):
 
 
 def vlan_to_switch_mapping(devices):
+    '''Prints the mapping between devices and VLANs
+                Args:
+                    devices: all devices need to have the infomraiton regarding vlans in devices[device]["vlans"]
+                Returns:
+                    Nothing
+
+    '''
     allvlans = []
     for device in devices:
         allvlans = list(set(devices[device]["vlans"]+allvlans))
@@ -166,6 +180,13 @@ def vlan_to_switch_mapping(devices):
     raw_input("Press any kay to continue...")
 
 def add_vlan(devices):
+    '''Add new VLAN to all devices
+        Args:
+            devices: all devices need to have the information regarding VLANs in devices[device]["vlans"]
+        Returns:
+            Nothing
+
+    '''
     vlan_number = raw_input("Please enter VLAN number: ")
     vlan_name = raw_input("Please enter VLAN name: ")
     for device in devices:
@@ -180,6 +201,13 @@ def add_vlan(devices):
         net_connect.disconnect()
 
 def delete_vlan(devices):
+    '''Delete VLAN from all devices
+        Args:
+            devices: all devices need to have the information regarding VLANs in devices[device]["vlans"]
+        Returns:
+            Nothing
+
+    '''
     vlan_number = raw_input("Please enter VLAN number: ")
     for device in devices:
         net_connect = ConnectHandler(**devices[device]["connection"])
@@ -192,6 +220,13 @@ def delete_vlan(devices):
         net_connect.disconnect()
 
 def rename_vlan(devices):
+    '''Rename VLAN on all devices
+        Args:
+            devices: all devices need to have the information regarding VLANs in devices[device]["vlans"]
+        Returns:
+            Nothing
+
+    '''
     vlan_number = raw_input("Please enter VLAN number: ")
     vlan_name = raw_input("Please enter new VLAN name: ")
     for device in devices:
@@ -207,6 +242,13 @@ def rename_vlan(devices):
         net_connect.disconnect()
 
 def menu(devices):
+    '''Prints and operates the VLANs menu part of the application
+        Args:
+            devices: all devices need to have the information regarding VLANs in devices[device]["vlans"]
+        Returns:
+            Nothing
+
+    '''
     print "Collecting VLAN information ..."
     for device in devices:
         print "Collecting VLAN information from ", device

@@ -66,6 +66,9 @@ def raw_list_to_dictionary(interface_cfg):
         if line == "switchport mode access":
             interface["mode"] = "Access"
 
+        if line == "switchport mode trunk":
+            interface["mode"] = "Trunk"
+
         if line.startswith("switchport access vlan"):
             interface["access_vlan"] = line[len("switchport access vlan") + 1:]
 

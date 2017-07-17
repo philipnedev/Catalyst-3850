@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4017d561-6d30-484b-aaef-5bb9b90a8e96" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/show.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hostname.py" afterPath="$PROJECT_DIR$/hostname.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interfaces.py" afterPath="$PROJECT_DIR$/interfaces.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/menu.py" afterPath="$PROJECT_DIR$/menu.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vlans.py" afterPath="$PROJECT_DIR$/vlans.py" />
     </list>
@@ -27,8 +30,20 @@
       <file leaf-file-name="menu.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/menu.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state relative-caret-position="220">
+              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+              <folding>
+                <element signature="e#82#91#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/show.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <element signature="e#82#91#0" expanded="true" />
               </folding>
@@ -39,8 +54,8 @@
       <file leaf-file-name="hostname.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hostname.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="92" column="14" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
+            <state relative-caret-position="123">
+              <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="8" />
               <folding>
                 <element signature="e#67#101#0" expanded="true" />
               </folding>
@@ -51,8 +66,8 @@
       <file leaf-file-name="devices_configuration.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/devices_configuration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="71" column="83" selection-start-line="71" selection-start-column="83" selection-end-line="71" selection-end-column="83" />
+            <state relative-caret-position="299">
+              <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -61,18 +76,18 @@
       <file leaf-file-name="formating.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/formating.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="844">
+            <state relative-caret-position="902">
               <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vlans.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="vlans.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vlans.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="211" column="47" selection-start-line="211" selection-start-column="47" selection-end-line="211" selection-end-column="47" />
+            <state relative-caret-position="-974">
+              <caret line="244" column="65" selection-start-line="244" selection-start-column="65" selection-end-line="244" selection-end-column="65" />
               <folding>
                 <element signature="e#18#52#0" expanded="true" />
               </folding>
@@ -80,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="interfaces.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="interfaces.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/interfaces.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="37" column="17" selection-start-line="31" selection-start-column="4" selection-end-line="37" selection-end-column="17" />
+            <state relative-caret-position="-3080">
+              <caret line="69" column="38" selection-start-line="69" selection-start-column="38" selection-end-line="69" selection-end-column="38" />
               <folding>
                 <element signature="e#18#27#0" expanded="true" />
               </folding>
@@ -129,13 +144,14 @@
       <list>
         <option value="$PROJECT_DIR$/inport_interface.py" />
         <option value="$PROJECT_DIR$/delete.py" />
-        <option value="$PROJECT_DIR$/interfaces.py" />
         <option value="$PROJECT_DIR$/pluralsight" />
         <option value="$PROJECT_DIR$/formating.py" />
         <option value="$PROJECT_DIR$/devices_configuration.py" />
+        <option value="$PROJECT_DIR$/vlans.py" />
         <option value="$PROJECT_DIR$/hostname.py" />
         <option value="$PROJECT_DIR$/menu.py" />
-        <option value="$PROJECT_DIR$/vlans.py" />
+        <option value="$PROJECT_DIR$/show.py" />
+        <option value="$PROJECT_DIR$/interfaces.py" />
       </list>
     </option>
   </component>
@@ -462,19 +478,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interfaces.py">
+    <entry file="file://$PROJECT_DIR$/vlans.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="37" column="17" selection-start-line="31" selection-start-column="4" selection-end-line="37" selection-end-column="17" />
+        <state relative-caret-position="-974">
+          <caret line="244" column="65" selection-start-line="244" selection-start-column="65" selection-end-line="244" selection-end-column="65" />
           <folding>
-            <element signature="e#18#27#0" expanded="true" />
+            <element signature="e#18#52#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/formating.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="844">
+        <state relative-caret-position="902">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
         </state>
@@ -482,38 +498,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/devices_configuration.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="71" column="83" selection-start-line="71" selection-start-column="83" selection-end-line="71" selection-end-column="83" />
+        <state relative-caret-position="299">
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hostname.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="92" column="14" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
+        <state relative-caret-position="123">
+          <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="8" />
           <folding>
             <element signature="e#67#101#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/menu.py">
+    <entry file="file://$PROJECT_DIR$/show.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        <state relative-caret-position="330">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="e#82#91#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vlans.py">
+    <entry file="file://$PROJECT_DIR$/menu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="211" column="47" selection-start-line="211" selection-start-column="47" selection-end-line="211" selection-end-column="47" />
+        <state relative-caret-position="220">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
           <folding>
-            <element signature="e#18#52#0" expanded="true" />
+            <element signature="e#82#91#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interfaces.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3080">
+          <caret line="69" column="38" selection-start-line="69" selection-start-column="38" selection-end-line="69" selection-end-column="38" />
+          <folding>
+            <element signature="e#18#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
